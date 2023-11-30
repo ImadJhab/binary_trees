@@ -12,7 +12,10 @@ size_t height_recursion(const binary_tree_t *tree)
 		counter_left = height_recursion(tree->left);
 	if (tree->right)
 		counter_right = height_recursion(tree->right);
-	return ((counter_left > counter_right) ? counter_left + 1 : counter_right + 1);
+	if (counter_left > counter_right)
+		return (counter_left + 1);
+	else
+		return (counter_right + 1);
 }
 /**
  * binary_tree_height - returns the height of a tree
